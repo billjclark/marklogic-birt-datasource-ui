@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+     <extension
+         point="org.eclipse.datatools.connectivity.connectionProfile">
+		<newWizard
+            id="%oda.data.source.id"
+            name="%newwizard.name"
+            class="org.eclipse.datatools.connectivity.oda.design.ui.wizards.NewDataSourceWizard"
+            description="%newwizard.description"
+            icon="icons/fieldlist.ico"
+            profile="%oda.data.source.id"/>
+   </extension>
+   <extension
+         point="org.eclipse.datatools.connectivity.ui.connectionProfileImage">
+      <profileImage
+            profileID="%oda.data.source.id"
+            icon="icons/profile.gif">
+      </profileImage>
+   </extension>   
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            id="%oda.data.source.id"
+            name="%profile.propertypage.name"
+            class="org.eclipse.datatools.engagement.marklogic.ui.wizards.XMLPropertyPage">
+         <enabledWhen>
+            <instanceof
+                  value="org.eclipse.datatools.connectivity.IConnectionProfile">
+            </instanceof>
+         </enabledWhen>
+         <filter
+               name="org.eclipse.datatools.profile.property.id"
+               value="%oda.data.source.id"/>
+      </page>
+   </extension>
+   
+   <extension
+         point="org.eclipse.datatools.connectivity.oda.design.ui.dataSource">
+	<dataSourceUI id="%oda.data.source.id">
+	     <newDataSourceWizard
+	           includesProgressMonitor="false"
+	           pageClass="org.eclipse.datatools.engagement.marklogic.ui.wizards.XMLSelectionWizardPage"
+	           pageTitle="%wizard.data.source.page.title"
+	           windowTitle="%wizard.window.title"/>
+	</dataSourceUI>
+	
+	<dataSetUI id="org.eclipse.datatools.enagagement.marklogicdataSet" 
+	           supportsOutParameters="false"
+	           supportsInParameters="true"
+	           initialPageId="org.eclipse.datatools.enagagement.marklogic.ui.dataset.ui1">
+	
+	<dataSetWizard class="org.eclipse.datatools.connectivity.oda.design.ui.wizards.DataSetWizard"
+	               windowTitle="%wizard.data.set.window.title"/>
+	
+	<dataSetPage id="org.eclipse.datatools.enagagement.marklogic.ui.dataset.ui1" 
+	             displayName="%marklogic.dataset"
+	             path="/"
+	             wizardPageClass="org.eclipse.datatools.engagement.marklogic.ui.wizards.XmlDataSetSelectionPage"/>
+	
+	<dataSetPage id="org.eclipse.datatools.enagagement.marklogic.ui.dataset.ui2"
+	             displayName="%marklogic.tablemapping"
+	             path="/"
+	             wizardPageClass="org.eclipse.datatools.engagement.marklogic.ui.wizards.XPathChoosePage"/>
+	
+	<dataSetPage id="org.eclipse.datatools.enagagement.marklogic.ui.dataset.ui3"
+	             displayName="%marklogic.columnmapping"
+	             path="/"
+	             wizardPageClass="org.eclipse.datatools.engagement.marklogic.ui.wizards.ColumnMappingPage"/>
+	
+	</dataSetUI>
+</extension>
+<extension
+         point="org.eclipse.ui.preferencePages">
+         <page
+            class="org.eclipse.datatools.engagement.marklogic.ui.preference.DataSetPreferencePage"
+            category="org.eclipse.datatools.connectivity.oda.design.ui.preferences.OpenDataAccessPage"
+            name="%preference.datasetpreview"
+            id="org.eclipse.datatools.engagement.marklogic.ui.preference.DataSetPreferencePage"/>
+   </extension>
+</plugin>
