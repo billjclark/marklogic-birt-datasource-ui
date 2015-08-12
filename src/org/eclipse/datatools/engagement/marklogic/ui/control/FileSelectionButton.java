@@ -75,7 +75,7 @@ public class FileSelectionButton
 				{
 					MenuItem item = (MenuItem) e.widget;
 					Integer type = (Integer) item.getData( );
-					handleFileSelection( type );
+					handleFileSelection( type.intValue() );
 				}
 				else if ( e.widget instanceof MenuButton )
 				{
@@ -105,14 +105,14 @@ public class FileSelectionButton
 		menu = new Menu( menuButton.getShell( ), SWT.POP_UP );
 		MenuItem item = new MenuItem( menu, SWT.PUSH );
 		item.setText( Messages.getString( "FileSelectionButton.menuItem.absolutePath" ) ); //$NON-NLS-1$
-		item.setData( ABSOLUTE_PATH );
+		item.setData( new Integer(ABSOLUTE_PATH) );
 		item.addSelectionListener( menuAction );
 
 		if ( supportRelative )
 		{
 			MenuItem relativeItem = new MenuItem( menu, SWT.PUSH );
 			relativeItem.setText( Messages.getString( "FileSelectionButton.menuItem.relativePath" ) ); //$NON-NLS-1$
-			relativeItem.setData( RELATIVE_PATH );
+			relativeItem.setData( new Integer(RELATIVE_PATH) );
 			relativeItem.addSelectionListener( menuAction );
 		}
 

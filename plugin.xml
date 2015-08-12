@@ -45,7 +45,7 @@
 	           windowTitle="%wizard.window.title"/>
 	</dataSourceUI>
 	
-	<dataSetUI id="org.eclipse.datatools.enagagement.marklogicdataSet" 
+	<dataSetUI id="org.eclipse.datatools.engagement.markogic.dataSet" 
 	           supportsOutParameters="false"
 	           supportsInParameters="true"
 	           initialPageId="org.eclipse.datatools.enagagement.marklogic.ui.dataset.ui1">

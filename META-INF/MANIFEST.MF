@@ -9,5 +9,4 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.datatools.connectivity.oda.design.ui;bundle-version="[3.2.0,4.0.0)",
  org.eclipse.datatools.engagement.marklogic
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
